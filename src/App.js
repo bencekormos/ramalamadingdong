@@ -21,7 +21,10 @@ import { Lightning, Utils } from '@lightningjs/sdk'
 
 export default class App extends Lightning.Component {
   static getFonts() {
-    return [{ family: 'Regular', url: Utils.asset('fonts/Roboto-Regular.ttf') }]
+    return [
+      { family: 'Regular', url: Utils.asset('fonts/Roboto-Regular.ttf') },
+      { family: 'StruckBase', url: Utils.asset('fonts/Struck-Base.otf') },
+    ]
   }
 
   static _template() {
@@ -34,19 +37,30 @@ export default class App extends Lightning.Component {
       },
       Logo: {
         mountX: 0.5,
-        mountY: 1,
+        mountY: 0.5,
         x: 960,
-        y: 600,
+        y: 540,
         src: Utils.asset('images/logo.png'),
       },
       Text: {
         mount: 0.5,
         x: 960,
-        y: 720,
+        y: 540,
         text: {
           text: "Let's start Building!",
-          fontFace: 'Regular',
-          fontSize: 64,
+          fontFace: 'StruckBase',
+          fontSize: 34,
+          textColor: 0xffffffff,
+        },
+      },
+      Text2: {
+        mountX: -1,
+        // x: 960,
+        // y: 720,
+        text: {
+          text: "Let's start Building!",
+          fontFace: 'StruckBase',
+          fontSize: 34,
           textColor: 0xbbffffff,
         },
       },
@@ -54,9 +68,9 @@ export default class App extends Lightning.Component {
   }
 
   _init() {
-    this.tag('Background')
+    this.tag('Text2')
       .animation({
-        duration: 15,
+        duration: 2,
         repeat: -1,
         actions: [
           {
