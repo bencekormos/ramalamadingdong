@@ -62,7 +62,7 @@ export default class App extends Lightning.Component {
           {
             t: '',
             p: 'color',
-            v: { 0: { v: 0xfffbb03b }, 0.5: { v: 0xfff46730 }, 0.8: { v: 0xfffbb03b } },
+            v: { 0: { v: 0xffffffff }, 0.5: { v: 0x00000000 }, 0.8: { v: 0xffffffff } },
           },
         ],
       })
