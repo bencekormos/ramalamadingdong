@@ -29,34 +29,35 @@ export default class App extends Lightning.Component {
 
   static _template() {
     return {
-      Background: {
-        w: 1920,
-        h: 1080,
-        color: 0xfffbb03b,
-        src: Utils.asset('images/background.png'),
-      },
-      Logo: {
+      // Background: {
+      //   w: 1920,
+      //   h: 1080,
+      //   color: 0xfffbb03b,
+      //   src: Utils.asset('images/background.png'),
+      // },
+      // Logo: {
+      //   mountX: 0.5,
+      //   mountY: 0.5,
+      //   x: 960,
+      //   y: 540,
+      //   src: Utils.asset('images/logo.png'),
+      // },
+      // Text: {
+      //   mount: 0.5,
+      //   x: 960,
+      //   y: 540,
+      //   text: {
+      //     text: "Let's start Building!",
+      //     fontFace: 'StruckBase',
+      //     fontSize: 34,
+      //     textColor: 0xffffffff,
+      //   },
+      // },
+      Text2: {
         mountX: 0.5,
         mountY: 0.5,
-        x: 960,
-        y: 540,
-        src: Utils.asset('images/logo.png'),
-      },
-      Text: {
-        mount: 0.5,
-        x: 960,
-        y: 540,
-        text: {
-          text: "Let's start Building!",
-          fontFace: 'StruckBase',
-          fontSize: 34,
-          textColor: 0xffffffff,
-        },
-      },
-      Text2: {
-        mountX: -1,
-        // x: 960,
-        // y: 720,
+        x: 250,
+        y: 250,
         text: {
           text: "Let's start Building!",
           fontFace: 'StruckBase',
@@ -64,7 +65,15 @@ export default class App extends Lightning.Component {
           textColor: 0xbbffffff,
         },
       },
+      rect: true,
+      w: 500,
+      h: 500,
+      color: 0xff000000,
     }
+  }
+
+  static _states() {
+    return []
   }
 
   _init() {
