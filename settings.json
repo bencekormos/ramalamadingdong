@@ -4,7 +4,7 @@
       "w": 1920,
       "h": 1080,
       "clearColor": "0xffff7700",
-      "useImageWorker": true
+      "useImageWorker": false
     },
     "debug": true
   },
