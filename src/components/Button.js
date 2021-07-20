@@ -29,4 +29,8 @@ export class Button extends Lightning.Component {
       alpha: 0.8,
     })
   }
+
+  _handleEnter() {
+    this.signal('onEnter', 'rama-lama ding dong', this.id)
+  }
 }

@@ -1,4 +1,4 @@
-import { Lightning, Router } from '@lightningjs/sdk'
+import { Lightning, Log, Router } from '@lightningjs/sdk'
 import { Button } from './Button'
 
 export class Dashboard extends Lightning.Component {
@@ -16,20 +16,37 @@ export class Dashboard extends Lightning.Component {
         },
       },
       Buttons: {
+        x: w => w / 2,
+        y: 50,
+        w: 800,
+        mountX: 0.5,
         Button1: {
           type: Button,
+          mountX: 0,
+          signals: {
+            onEnter: '_onButtonEnter',
+          },
         },
         Button2: {
           type: Button,
-          mount: -1,
+          signals: {
+            onEnter: '_onButtonEnter',
+          },
+          mountX: -1,
         },
         Button3: {
           type: Button,
-          mount: -2,
+          signals: {
+            onEnter: '_onButtonEnter',
+          },
+          mountX: -2,
         },
         Button4: {
           type: Button,
-          mount: -3,
+          signals: {
+            onEnter: '_onButtonEnter',
+          },
+          mountX: -3,
         },
       },
     }
@@ -43,17 +60,21 @@ export class Dashboard extends Lightning.Component {
     this.index = 0
   }
 
+  _onButtonEnter() {
+    Log.info(...arguments)
+  }
+
   _handleBack() {
     Router.navigate('/splash')
   }
 
-  _handleUp() {
-    const nextIndex = this.index + 1
-    this.index = this.tag('Buttons').children.length > nextIndex ? nextIndex : 0
-  }
-
-  _handleDown() {
+  _handleLeft() {
     const nextIndex = this.index - 1
     this.index = nextIndex >= 0 ? nextIndex : this.tag('Buttons').children.length - 1
+  }
+
+  _handleRight() {
+    const nextIndex = this.index + 1
+    this.index = this.tag('Buttons').children.length > nextIndex ? nextIndex : 0
   }
 }
