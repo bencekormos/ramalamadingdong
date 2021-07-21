@@ -1,15 +1,23 @@
-import { Splash, Dashboard } from './components'
+import { Splash, Dashboard, NotFoundPage, ErrorPage } from './components'
 
 export const routes = {
-  root: '/splash',
+  root: 'splash',
   routes: [
     {
-      path: '/splash',
+      path: 'splash',
       component: Splash,
     },
     {
-      path: '/dashboard',
+      path: 'dashboard',
       component: Dashboard,
+    },
+    {
+      path: '*',
+      component: NotFoundPage,
+    },
+    {
+      path: '!',
+      component: ErrorPage,
     },
   ],
 }

@@ -1,14 +1,18 @@
 import { Lightning } from '@lightningjs/sdk'
+import { half } from '../utils/half'
 
 export class Button extends Lightning.Component {
   static _template() {
     return {
       rect: true,
-      w: 200,
-      h: 50,
-      color: 0xffff0000,
       alpha: 0.8,
+      texture: Lightning.Tools.getRoundRect(150, 75, 5),
       Label: {
+        x: half,
+        y: half,
+        mountX: 0.5,
+        mountY: 0.4275,
+        color: 0xff000000,
         text: {
           text: 'Button',
         },
@@ -17,20 +21,16 @@ export class Button extends Lightning.Component {
   }
 
   _focus() {
-    this.patch({
-      color: 0xffffff00,
-      alpha: 1,
-    })
+    const alpha = 1
+    this.patch({ alpha })
   }
 
   _unfocus() {
-    this.patch({
-      color: 0xffff0000,
-      alpha: 0.8,
-    })
+    const alpha = 0.8
+    this.patch({ alpha })
   }
 
   _handleEnter() {
-    this.signal('onEnter', 'rama-lama ding dong', this.id)
+    this.signal('onEnter', this.id)
   }
 }

@@ -1,6 +1,6 @@
 import { Lightning, Router, Settings } from '@lightningjs/sdk'
 
-export class Splash extends Lightning.Component {
+export class NotFoundPage extends Lightning.Component {
   static _template() {
     const { w, h, clearColor } = Settings.get('app', 'stage')
     return {
@@ -10,18 +10,20 @@ export class Splash extends Lightning.Component {
       w,
       h,
       color: clearColor,
-      MyText: {
+      TextWrapper: {
         x: w => w / 2,
         y: h => h / 2,
         mount: 0.5,
-        text: {
-          text: 'Press "Enter" to continue...',
+        Label: {
+          text: {
+            text: 'Page not found',
+          },
         },
       },
     }
   }
 
   _handleEnter() {
-    Router.navigate('dashboard')
+    Router.navigate('splash')
   }
 }
